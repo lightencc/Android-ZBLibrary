@@ -15,8 +15,11 @@ limitations under the License.*/
 package zblibrary.demo.DEMO;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 import zblibrary.demo.R;
+import zblibrary.demo.model.PickerViewData;
+import zblibrary.demo.model.ProvinceBean;
 import zuo.biao.library.base.BaseActivity;
 import zuo.biao.library.interfaces.OnBottomDragListener;
 import zuo.biao.library.ui.AlertDialog;
@@ -40,6 +43,7 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MotionEvent;
@@ -49,6 +53,12 @@ import android.view.View.OnTouchListener;
 import android.widget.ImageView;
 import android.widget.ScrollView;
 import android.widget.TextView;
+
+import com.bigkoo.pickerview.OptionsPickerView;
+import com.bigkoo.pickerview.TimePickerView;
+import com.bigkoo.pickerview.model.IPickerViewData;
+
+import static zuo.biao.library.util.TimeUtil.getTime;
 
 /**demo主页
  * @author Lemon
@@ -81,9 +91,176 @@ public class DemoMainActivity extends BaseActivity implements OnClickListener, O
 
 		//功能归类分区方法，必须调用<<<<<<<<<<
 		initView();
+		initTimePickerView();
+		initOptionData();
+		initOptionPicker();
 		initData();
 		initEvent();
 		//功能归类分区方法，必须调用>>>>>>>>>>
+
+	}
+
+	TimePickerView pvTime;
+
+	private void initTimePickerView() {
+		pvTime = new TimePickerView.Builder(this, new TimePickerView.OnTimeSelectListener() {
+			@Override
+			public void onTimeSelect(Date date, View v) {//选中事件回调
+				showShortToast(date.toString());
+			}
+		}).build();
+	}
+
+	private ArrayList<ProvinceBean> options1Items = new ArrayList<>();
+	private ArrayList<ArrayList<String>> options2Items = new ArrayList<>();
+	private ArrayList<ArrayList<ArrayList<IPickerViewData>>> options3Items = new ArrayList<>();
+
+	private void initOptionData() {
+
+		//选项1
+		options1Items.add(new ProvinceBean(0,"广东","描述部分","其他数据"));
+		options1Items.add(new ProvinceBean(1,"湖南","描述部分","其他数据"));
+		options1Items.add(new ProvinceBean(2,"广西壮族字字去区","描述部分","其他数据"));
+
+		//选项2
+		ArrayList<String> options2Items_01=new ArrayList<>();
+		options2Items_01.add("广州");
+		options2Items_01.add("佛山");
+		options2Items_01.add("东莞");
+		options2Items_01.add("阳江");
+		options2Items_01.add("珠海");
+		ArrayList<String> options2Items_02=new ArrayList<>();
+		options2Items_02.add("长沙");
+		options2Items_02.add("岳阳");
+		options2Items_02.add("株洲");
+		options2Items_02.add("衡阳");
+		ArrayList<String> options2Items_03=new ArrayList<>();
+		options2Items_03.add("桂林");
+		options2Items_03.add("玉林");
+		options2Items.add(options2Items_01);
+		options2Items.add(options2Items_02);
+		options2Items.add(options2Items_03);
+
+		//选项3
+		ArrayList<ArrayList<IPickerViewData>> options3Items_01 = new ArrayList<>();
+		ArrayList<ArrayList<IPickerViewData>> options3Items_02 = new ArrayList<>();
+		ArrayList<ArrayList<IPickerViewData>> options3Items_03 = new ArrayList<>();
+
+		//广东的地区
+		ArrayList<IPickerViewData> options3Items_01_01=new ArrayList<>();
+		options3Items_01_01.add(new PickerViewData("天河"));
+		options3Items_01_01.add(new PickerViewData("海珠"));
+		options3Items_01_01.add(new PickerViewData("越秀"));
+		options3Items_01_01.add(new PickerViewData("荔湾"));
+		options3Items_01_01.add(new PickerViewData("花都"));
+		options3Items_01_01.add(new PickerViewData("番禺"));
+		options3Items_01_01.add(new PickerViewData("萝岗"));
+		options3Items_01.add(options3Items_01_01);
+
+		ArrayList<IPickerViewData> options3Items_01_02=new ArrayList<>();
+		options3Items_01_02.add(new PickerViewData("南海"));
+		options3Items_01_02.add(new PickerViewData("高明"));
+		options3Items_01_02.add(new PickerViewData("禅城"));
+		options3Items_01_02.add(new PickerViewData("桂城"));
+		options3Items_01.add(options3Items_01_02);
+
+		ArrayList<IPickerViewData> options3Items_01_03=new ArrayList<>();
+		options3Items_01_03.add(new PickerViewData("其他"));
+		options3Items_01_03.add(new PickerViewData("常平"));
+		options3Items_01_03.add(new PickerViewData("虎门"));
+		options3Items_01.add(options3Items_01_03);
+
+		ArrayList<IPickerViewData> options3Items_01_04=new ArrayList<>();
+		options3Items_01_04.add(new PickerViewData("其他"));
+		options3Items_01_04.add(new PickerViewData("其他"));
+		options3Items_01_04.add(new PickerViewData("其他"));
+		options3Items_01.add(options3Items_01_04);
+		ArrayList<IPickerViewData> options3Items_01_05=new ArrayList<>();
+
+		options3Items_01_05.add(new PickerViewData("其他1"));
+		options3Items_01_05.add(new PickerViewData("其他2"));
+		options3Items_01.add(options3Items_01_05);
+
+
+		//湖南的地区
+		ArrayList<IPickerViewData> options3Items_02_01=new ArrayList<>();
+		options3Items_02_01.add(new PickerViewData("长沙1"));
+		options3Items_02_01.add(new PickerViewData("长沙2"));
+		options3Items_02_01.add(new PickerViewData("长沙3"));
+		options3Items_02.add(options3Items_02_01);
+
+		ArrayList<IPickerViewData> options3Items_02_02=new ArrayList<>();
+		options3Items_02_02.add(new PickerViewData("岳阳1"));
+		options3Items_02_02.add(new PickerViewData("岳阳2"));
+		options3Items_02_02.add(new PickerViewData("岳阳3"));
+		options3Items_02.add(options3Items_02_02);
+
+		ArrayList<IPickerViewData> options3Items_02_03=new ArrayList<>();
+		options3Items_02_03.add(new PickerViewData("株洲1"));
+		options3Items_02_03.add(new PickerViewData("株洲2"));
+		options3Items_02_03.add(new PickerViewData("株洲3"));
+		options3Items_02.add(options3Items_02_03);
+
+		ArrayList<IPickerViewData> options3Items_02_04=new ArrayList<>();
+		options3Items_02_04.add(new PickerViewData("衡阳1"));
+		options3Items_02_04.add(new PickerViewData("衡阳2"));
+		options3Items_02_04.add(new PickerViewData("衡阳3"));
+		options3Items_02.add(options3Items_02_04);
+
+
+		//广西的地区
+		ArrayList<IPickerViewData> options3Items_03_01=new ArrayList<>();
+		options3Items_03_01.add(new PickerViewData("阳朔"));
+		options3Items_03.add(options3Items_03_01);
+
+		ArrayList<IPickerViewData> options3Items_03_02=new ArrayList<>();
+		options3Items_03_02.add(new PickerViewData("北流"));
+		options3Items_03.add(options3Items_03_02);
+
+		//将数据分别添加到一二三项的数组去
+		options3Items.add(options3Items_01);
+		options3Items.add(options3Items_02);
+		options3Items.add(options3Items_03);
+        /*--------数据源添加完毕---------*/
+	}
+
+	private OptionsPickerView pvOptions;
+
+	private void initOptionPicker() {//条件选择器初始化
+		pvOptions = new  OptionsPickerView.Builder(this, new OptionsPickerView.OnOptionsSelectListener() {
+			@Override
+			public void onOptionsSelect(int options1, int option2, int options3 ,View v) {
+				//返回的分别是三个级别的选中位置
+				String tx = options1Items.get(options1).getPickerViewText()
+						+ options2Items.get(options1).get(option2)
+						+ options3Items.get(options1).get(option2).get(options3).getPickerViewText();
+
+			}
+		})
+                /*.setSubmitText("确定")
+                .setCancelText("取消")
+                .setTitleText("城市选择")
+                .setTitleSize(20)
+                .setTitleColor(Color.BLACK)
+                .setSubmitColor(Color.BLUE)
+                .setCancelColor(Color.BLUE)
+                .setBackgroundColor(Color.WHITE)
+                .setLinkage(false)//default true
+                .setCyclic(false, false, false)//循环与否
+                .setOutSideCancelable(false)//点击外部dismiss, default true
+                .setTitleBgColor(0xFF333333)//标题背景颜色 Night mode
+                .setBgColor(0xFF000000)//滚轮背景颜色 Night mode
+                .setLabels("省", "市", "区")//设置选择的三级单位*/
+				.setSubCalSize(18)//确定取消按钮大小
+				.setLineSpacingMultiplier(1.5f) //设置两横线之间的间隔倍数（范围：1.2 - 2.0倍 文字高度）
+				//.setDividerColor(Color.RED)//设置分割线的颜色
+				.setTextColorCenter(Color.BLACK) //设置选中项文字颜色
+				.setContentTextSize(20)//设置滚轮文字大小
+				.setSelectOptions(0,1,2)  //设置默认选中项
+				//.isDialog(true)//设置为对话框模式
+				.build();
+
+		pvOptions.setPicker(options1Items, options2Items, options3Items);
 
 	}
 
@@ -230,6 +407,9 @@ public class DemoMainActivity extends BaseActivity implements OnClickListener, O
 		findViewById(R.id.llDemoMainPlacePickerWindow).setOnClickListener(this);
 		findViewById(R.id.llDemoMainDatePickerWindow).setOnClickListener(this);
 		findViewById(R.id.llDemoMainTimePickerWindow).setOnClickListener(this);
+		findViewById(R.id.llDemoMainTimePickerView).setOnClickListener(this);
+		findViewById(R.id.llDemoMainOptionsPickerView).setOnClickListener(this);
+
 
 	}
 
@@ -323,12 +503,16 @@ public class DemoMainActivity extends BaseActivity implements OnClickListener, O
 			
 		case R.id.llDemoMainItemDialog:
 			showItemDialog();
-			break;    
+			break;
+		case R.id.llDemoMainTimePickerView:
+			pvTime.show();
+			break;
+		case R.id.llDemoMainOptionsPickerView:
+			pvOptions.show();
+			break;
 		case R.id.llDemoMainAlertDialog:
 			new AlertDialog(context, "更改颜色", "确定将导航栏颜色改为红色？", true, 0, this).show();
-			break;   
-
-			
+		break;
 		case R.id.llDemoMainScanActivity:
 			break;
 		case R.id.llDemoMainSelectPictureActivity:
@@ -356,9 +540,7 @@ public class DemoMainActivity extends BaseActivity implements OnClickListener, O
 			break;
 		case R.id.llDemoMainDemoBottomWindow:
 			toActivity(DemoBottomWindow.createIntent(context, ""), REQUEST_TO_DEMO_BOTTOM_WINDOW, false);
-			break;   
-
-			
+			break;
 		case R.id.llDemoMainTopMenuWindow:
 			showTopMenu();
 			break;  
