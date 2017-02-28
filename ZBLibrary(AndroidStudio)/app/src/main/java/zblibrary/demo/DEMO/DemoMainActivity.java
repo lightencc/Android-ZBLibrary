@@ -17,7 +17,6 @@ package zblibrary.demo.DEMO;
 import java.util.ArrayList;
 
 import zblibrary.demo.R;
-import zblibrary.demo.activity_fragment.ScanActivity;
 import zuo.biao.library.base.BaseActivity;
 import zuo.biao.library.interfaces.OnBottomDragListener;
 import zuo.biao.library.ui.AlertDialog;
@@ -35,7 +34,6 @@ import zuo.biao.library.ui.ServerSettingActivity;
 import zuo.biao.library.ui.TimePickerWindow;
 import zuo.biao.library.ui.TopMenuWindow;
 import zuo.biao.library.ui.WebViewActivity;
-import zuo.biao.library.util.CommonUtil;
 import zuo.biao.library.util.DataKeeper;
 import zuo.biao.library.util.ImageLoaderUtil;
 import zuo.biao.library.util.SettingUtil;
@@ -342,8 +340,7 @@ public class DemoMainActivity extends BaseActivity implements OnClickListener, O
 
 			
 		case R.id.llDemoMainScanActivity:
-			toActivity(ScanActivity.createIntent(context), REQUEST_TO_CAMERA_SCAN);
-			break;  
+			break;
 		case R.id.llDemoMainSelectPictureActivity:
 			selectPicture();
 			break;   
@@ -356,29 +353,18 @@ public class DemoMainActivity extends BaseActivity implements OnClickListener, O
 			break;   
 		case R.id.llDemoMainEditTextInfoActivity:
 			editName(false);
-			break;   
-			
-		case R.id.llDemoMainDemoActivity:
-			toActivity(DemoActivity.createIntent(context, 0));
-			break;     
+			break;
 		case R.id.llDemoMainDemoListActivity:
-			toActivity(DemoListActivity.createIntent(context, 0));
-			break;     
+			break;
 		case R.id.llDemoMainDemoFragmentActivity:
-			toActivity(DemoFragmentActivity.createIntent(context, 0));
-			break;  
+			break;
 		case R.id.llDemoMainDemoTabActivity:
-			toActivity(DemoTabActivity.createIntent(context));
+			//toActivity(DemoTabActivity.createIntent(context));
 			break; 
 		case R.id.llDemoMainDemoSQLActivity:
-			toActivity(DemoSQLActivity.createIntent(context));
-			break; 
+			break;
 		case R.id.llDemoMainDemoTimeRefresherActivity:
-			toActivity(DemoTimeRefresherActivity.createIntent(context));
-			break;   
-		case R.id.llDemoMainDemoBroadcastReceiverActivity:
-			toActivity(DemoBroadcastReceiverActivity.createIntent(context));
-			break;   
+			break;
 		case R.id.llDemoMainDemoBottomWindow:
 			toActivity(DemoBottomWindow.createIntent(context, ""), REQUEST_TO_DEMO_BOTTOM_WINDOW, false);
 			break;   
@@ -445,10 +431,7 @@ public class DemoMainActivity extends BaseActivity implements OnClickListener, O
 			break;
 		case REQUEST_TO_CAMERA_SCAN:
 			if (data != null) {
-				String result = data.getStringExtra(ScanActivity.RESULT_QRCODE_STRING);
-				CommonUtil.copyText(context, result);
-//				toActivity(WebViewActivity.createIntent(context, "扫描结果", result));
-				CommonUtil.openWebSite(context, result);
+
 			}
 			break;
 		case REQUEST_TO_EDIT_TEXT_INFO:

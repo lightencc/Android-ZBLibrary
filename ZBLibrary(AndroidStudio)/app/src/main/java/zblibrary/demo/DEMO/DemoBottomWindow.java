@@ -15,7 +15,6 @@ limitations under the License.*/
 package zblibrary.demo.DEMO;
 
 import zblibrary.demo.R;
-import zblibrary.demo.activity_fragment.UserActivity;
 import zuo.biao.library.base.BaseViewBottomWindow;
 import zuo.biao.library.model.Entry;
 import android.app.Activity;
@@ -145,7 +144,7 @@ public class DemoBottomWindow extends BaseViewBottomWindow<Entry<String, String>
 		switch (v.getId()) {
 		case R.id.ivDemoViewHead:
 			if (data != null) {
-				toActivity(UserActivity.createIntent(context, data.getId()));
+				//toActivity(UserActivity.createIntent(context, data.getId()));
 			}
 			break;
 		default:

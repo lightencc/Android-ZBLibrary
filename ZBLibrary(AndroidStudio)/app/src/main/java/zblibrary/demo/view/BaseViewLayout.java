@@ -14,7 +14,6 @@ limitations under the License.*/
 
 package zblibrary.demo.view;
 
-import zblibrary.demo.activity_fragment.UserActivity;
 import zuo.biao.library.base.BaseView;
 import android.app.Activity;
 import android.content.Context;

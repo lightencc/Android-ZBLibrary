@@ -14,7 +14,6 @@ limitations under the License.*/
 
 package zblibrary.demo.application;
 
-import zblibrary.demo.manager.DataManager;
 import zblibrary.demo.model.User;
 import zuo.biao.library.base.BaseApplication;
 import zuo.biao.library.util.StringUtil;
@@ -52,7 +51,7 @@ public class DemoApplication extends BaseApplication {
 	private static User currentUser = null;
 	public User getCurrentUser() {
 		if (currentUser == null) {
-			currentUser = DataManager.getInstance().getCurrentUser();
+			//currentUser = DataManager.getInstance().getCurrentUser();
 		}
 		return currentUser;
 	}
@@ -69,7 +68,7 @@ public class DemoApplication extends BaseApplication {
 		}
 
 		currentUser = user;
-		DataManager.getInstance().saveCurrentUser(currentUser);
+		//DataManager.getInstance().saveCurrentUser(currentUser);
 	}
 
 	/**判断是否为当前用户
@@ -77,7 +76,7 @@ public class DemoApplication extends BaseApplication {
 	 * @return
 	 */
 	public boolean isCurrentUser(long userId) {
-		return DataManager.getInstance().isCurrentUser(userId);
+		return false;
 	}
 
 

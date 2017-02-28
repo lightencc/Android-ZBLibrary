@@ -63,6 +63,7 @@ public class CutPictureActivity extends BaseActivity {
 			, String cuttedPath, String cuttedName, int cuttedSize) {
 		return createIntent(context, originalPath, cuttedPath, cuttedName, cuttedSize, cuttedSize);
 	}
+
 	/**启动这个Activity的Intent
 	 * @param context
 	 * @param originalPath
