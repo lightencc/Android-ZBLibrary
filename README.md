@@ -4,10 +4,6 @@
 
 在原来的基础上去除了列表展示，网络请求相关代码，仅保留页面样式和通用的UI组件。
 
-![](https://github.com/TommyLemon/Android-ZBLibrary/blob/master/AllPages.jpg?raw=true)
-
-[以下Gif图看起来比较卡，实际上手机运行很流畅] 
-
 ![](https://github.com/TommyLemon/Android-ZBLibrary/blob/master/screenshot/DatePickerWindow.gif)
 
 
