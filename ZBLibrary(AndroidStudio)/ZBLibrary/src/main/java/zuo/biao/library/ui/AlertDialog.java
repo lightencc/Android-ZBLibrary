@@ -136,6 +136,7 @@ public class AlertDialog extends Dialog implements android.view.View.OnClickList
 		}
 
 		dismiss();
+		System.out.println();
 	}
 
 }
