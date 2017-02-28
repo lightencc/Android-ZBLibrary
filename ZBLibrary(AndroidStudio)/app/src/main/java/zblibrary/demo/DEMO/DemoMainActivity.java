@@ -30,13 +30,10 @@ import zuo.biao.library.ui.ItemDialog;
 import zuo.biao.library.ui.ItemDialog.OnDialogItemClickListener;
 import zuo.biao.library.ui.PlacePickerWindow;
 import zuo.biao.library.ui.SelectPictureActivity;
-import zuo.biao.library.ui.ServerSettingActivity;
 import zuo.biao.library.ui.TimePickerWindow;
 import zuo.biao.library.ui.TopMenuWindow;
 import zuo.biao.library.ui.WebViewActivity;
 import zuo.biao.library.util.DataKeeper;
-import zuo.biao.library.util.ImageLoaderUtil;
-import zuo.biao.library.util.SettingUtil;
 import zuo.biao.library.util.StringUtil;
 import zuo.biao.library.util.TimeUtil;
 import android.annotation.SuppressLint;
@@ -71,7 +68,6 @@ public class DemoMainActivity extends BaseActivity implements OnClickListener, O
 	}
 
 	//启动方法>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-	
 
 	@Override
 	public Activity getActivity() {
@@ -91,14 +87,10 @@ public class DemoMainActivity extends BaseActivity implements OnClickListener, O
 
 	}
 
-
 	//UI显示区(操作UI，但不存在数据获取或处理代码，也不存在事件监听代码)<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-	
 	private static final String[] TOPBAR_COLOR_NAMES = {"灰色", "蓝色", "黄色"};
 	private static final int[] TOPBAR_COLOR_RESIDS = {R.color.gray, R.color.blue,R.color.yellow};
-
 	private View rlDemoMainTopbar;
-
 	private ImageView ivDemoMainHead;
 	private TextView tvDemoMainHeadName;
 
@@ -108,10 +100,8 @@ public class DemoMainActivity extends BaseActivity implements OnClickListener, O
 		exitAnim = R.anim.bottom_push_out;
 
 		rlDemoMainTopbar = findViewById(R.id.rlDemoMainTopbar);
-
 		ivDemoMainHead = findViewById(R.id.ivDemoMainHead, this);
 		tvDemoMainHeadName = findViewById(R.id.tvDemoMainHeadName, this);
-
 		svDemoMain = (ScrollView) findViewById(R.id.svDemoMain);
 	}
 
@@ -163,7 +153,7 @@ public class DemoMainActivity extends BaseActivity implements OnClickListener, O
 		this.picturePath = path;
 
 		svDemoMain.smoothScrollTo(0, 0);
-		ImageLoaderUtil.loadImage(ivDemoMainHead, path);
+		//ImageLoaderUtil.loadImage(ivDemoMainHead, path);
 	}
 
 	/**编辑图片名称
@@ -298,18 +288,18 @@ public class DemoMainActivity extends BaseActivity implements OnClickListener, O
 				return true;
 			}
 		case MotionEvent.ACTION_UP:
-			if (v.getId() == R.id.llDemoMainServerSettingActivity) {
-				long time = System.currentTimeMillis() - touchDownTime;
-				if (time < 5000 || time > 8000) {
-					showShortToast("请长按5-8秒");
-				} else {
-					toActivity(ServerSettingActivity.createIntent(context
-							, SettingUtil.getServerAddress(context, false), SettingUtil.getServerAddress(context, true)
-							, SettingUtil.APP_SETTING, Context.MODE_PRIVATE
-							, SettingUtil.KEY_SERVER_ADDRESS_NORMAL, SettingUtil.KEY_SERVER_ADDRESS_TEST));
-					return true;
-				}
-			}
+//			if (v.getId() == R.id.llDemoMainServerSettingActivity) {
+//				long time = System.currentTimeMillis() - touchDownTime;
+//				if (time < 5000 || time > 8000) {
+//					showShortToast("请长按5-8秒");
+//				} else {
+//					toActivity(ServerSettingActivity.createIntent(context
+//							, SettingUtil.getServerAddress(context, false), SettingUtil.getServerAddress(context, true)
+//							, SettingUtil.APP_SETTING, Context.MODE_PRIVATE
+//							, SettingUtil.KEY_SERVER_ADDRESS_NORMAL, SettingUtil.KEY_SERVER_ADDRESS_TEST));
+//					return true;
+//				}
+//			}
 			break;
 		default:
 			break;
@@ -348,8 +338,7 @@ public class DemoMainActivity extends BaseActivity implements OnClickListener, O
 			cutPicture(picturePath);
 			break;  
 		case R.id.llDemoMainWebViewActivity:
-			toActivity(WebViewActivity.createIntent(context, SettingUtil.isOnTestMode ? "测试服务器" : "正式服务器"
-				, SettingUtil.getCurrentServerAddress(context)));
+
 			break;   
 		case R.id.llDemoMainEditTextInfoActivity:
 			editName(false);

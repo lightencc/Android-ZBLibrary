@@ -19,10 +19,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import zuo.biao.library.util.Log;
 import zuo.biao.library.util.StringUtil;
 import android.os.Handler;
 import android.os.HandlerThread;
+import android.util.Log;
 
 /**线程管理类
  * @author Lemon

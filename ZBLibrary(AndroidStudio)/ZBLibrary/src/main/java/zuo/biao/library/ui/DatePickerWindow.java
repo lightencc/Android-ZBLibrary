@@ -21,7 +21,6 @@ import java.util.List;
 import zuo.biao.library.base.BaseViewBottomWindow;
 import zuo.biao.library.model.Entry;
 import zuo.biao.library.model.GridPickerConfig;
-import zuo.biao.library.ui.GridPickerView.OnTabClickListener;
 import zuo.biao.library.util.StringUtil;
 import zuo.biao.library.util.TimeUtil;
 import android.annotation.SuppressLint;
@@ -362,7 +361,7 @@ public class DatePickerWindow extends BaseViewBottomWindow<List<Entry<Integer, S
 	}
 
 
-	private OnTabClickListener onTabClickListener = new OnTabClickListener() {
+	private GridPickerView.OnTabClickListener onTabClickListener = new GridPickerView.OnTabClickListener() {
 
 		@Override
 		public void onTabClick(int tabPosition, TextView tvTab) {

@@ -24,6 +24,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Environment;
+import android.util.Log;
 
 /**数据存储工具类
  * @must 
@@ -69,7 +70,7 @@ public class DataKeeper {
 		Log.i(TAG, "init fileRootPath = " + fileRootPath);
 		
 		//判断SD卡存在
-		if (android.os.Environment.getExternalStorageState().equals(android.os.Environment.MEDIA_MOUNTED)) {
+		if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
 			if(fileRootPath != null) {
 				File file = new File(imagePath);
 				if(!file.exists()) {

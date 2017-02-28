@@ -19,12 +19,11 @@ import zblibrary.demo.model.User;
 import zuo.biao.library.base.BaseModel;
 import zuo.biao.library.base.BaseView;
 import zuo.biao.library.ui.WebViewActivity;
-import zuo.biao.library.util.ImageLoaderUtil;
-import zuo.biao.library.util.Log;
-import zuo.biao.library.util.StringUtil;
+
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.res.Resources;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -85,17 +84,17 @@ public class UserView extends BaseView<User> implements OnClickListener {
 		}
 		this.data = data;
 
-		ImageLoaderUtil.loadImage(ivUserViewHead, data.getHead(), ImageLoaderUtil.TYPE_OVAL);
-		ivUserViewStar.setImageResource(data.getStarred() ? R.drawable.star_light : R.drawable.star);
-
-		tvUserViewSex.setBackgroundResource(data.getSex() == User.SEX_FEMALE
-				? R.drawable.circle_pink : R.drawable.circle_blue);
-		tvUserViewSex.setText(data.getSex() == User.SEX_FEMALE ?  "女" : "男");
-		tvUserViewSex.setTextColor(getColor(data.getSex() == User.SEX_FEMALE ? R.color.pink : R.color.blue));
-
-		tvUserViewName.setText(StringUtil.getTrimedString(data.getName()));
-		tvUserViewId.setText("ID:" + data.getId());
-		tvUserViewNumber.setText("Phone:" + StringUtil.getNoBlankString(data.getPhone()));
+//		ImageLoaderUtil.loadImage(ivUserViewHead, data.getHead(), ImageLoaderUtil.TYPE_OVAL);
+//		ivUserViewStar.setImageResource(data.getStarred() ? R.drawable.star_light : R.drawable.star);
+//
+//		tvUserViewSex.setBackgroundResource(data.getSex() == User.SEX_FEMALE
+//				? R.drawable.circle_pink : R.drawable.circle_blue);
+//		tvUserViewSex.setText(data.getSex() == User.SEX_FEMALE ?  "女" : "男");
+//		tvUserViewSex.setTextColor(getColor(data.getSex() == User.SEX_FEMALE ? R.color.pink : R.color.blue));
+//
+//		tvUserViewName.setText(StringUtil.getTrimedString(data.getName()));
+//		tvUserViewId.setText("ID:" + data.getId());
+//		tvUserViewNumber.setText("Phone:" + StringUtil.getNoBlankString(data.getPhone()));
 	}
 
 	@Override

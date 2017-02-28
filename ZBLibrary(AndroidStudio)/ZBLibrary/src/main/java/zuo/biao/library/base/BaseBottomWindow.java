@@ -15,10 +15,11 @@ limitations under the License.*/
 package zuo.biao.library.base;
 
 import zuo.biao.library.R;
-import zuo.biao.library.util.Log;
+
 import android.annotation.SuppressLint;
 import android.os.Handler;
 import android.os.Message;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.AnimationUtils;
 

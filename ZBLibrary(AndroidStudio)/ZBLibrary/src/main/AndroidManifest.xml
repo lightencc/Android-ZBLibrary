@@ -38,10 +38,6 @@
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateVisible|adjustPan|adjustUnspecified" />
         <activity
-            android:name="zuo.biao.library.ui.ServerSettingActivity"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden" />
-        <activity
             android:name="zuo.biao.library.ui.TopMenuWindow"
             android:screenOrientation="portrait"
             android:theme="@style/Window"

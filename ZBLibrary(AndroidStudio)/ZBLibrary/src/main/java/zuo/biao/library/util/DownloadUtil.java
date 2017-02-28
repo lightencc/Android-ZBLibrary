@@ -11,6 +11,7 @@ import java.net.URL;
 import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
+import android.util.Log;
 
 /**下载工具类
  * @author Lemon

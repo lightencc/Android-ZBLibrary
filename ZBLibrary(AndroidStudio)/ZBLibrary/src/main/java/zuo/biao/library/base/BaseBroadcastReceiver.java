@@ -17,13 +17,13 @@ package zuo.biao.library.base;
 import java.util.Arrays;
 import java.util.List;
 
-import zuo.biao.library.util.Log;
 import zuo.biao.library.util.StringUtil;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.support.annotation.Nullable;
+import android.util.Log;
 
 /**基础广播接收器
  * @author Lemon

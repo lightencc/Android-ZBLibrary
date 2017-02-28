@@ -15,14 +15,15 @@ limitations under the License.*/
 package zblibrary.demo.application;
 
 import zblibrary.demo.model.User;
-import zuo.biao.library.base.BaseApplication;
 import zuo.biao.library.util.StringUtil;
+
+import android.app.Application;
 import android.util.Log;
 
 /**Application
  * @author Lemon
  */
-public class DemoApplication extends BaseApplication {
+public class DemoApplication extends Application {
 	private static final String TAG = "DemoApplication";
 
 	private static DemoApplication context;
